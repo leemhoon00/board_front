@@ -15,8 +15,7 @@ class LoginComponent extends React.Component{
         width: '100%',
         height: '100vh',
       }}>
-        <form className="row form-group" style={{
-        }}>
+        <form className="row form-group">
           <input name="id" className="col-12 form-control" placeholder="아이디" required type="text"/>
           <input name="pw" className="col-12 form-control" placeholder="비밀번호" required type="password" />
           <button type="submit" className="col-6 btn btn-primary">로그인</button>
