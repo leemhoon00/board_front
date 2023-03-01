@@ -1,11 +1,19 @@
-import { Component } from "react";
+import axios from 'axios';
 
-class BoardsComponent extends Component{
-  render() {
-    return (
-      <div>dddd</div>
-    );
+function BoardsComponent() {
+  const ClickEvent = async (event) => {
+    await axios.post('http://localhost:3001/auth/test',{ddd:'ddd'},{
+      withCredentials: true
+    })
+      .then((res) => {
+        console.log(res);
+      });
   }
+  return(
+    <div>
+      <button onClick={ClickEvent}>OK</button>
+    </div>
+  );
 }
 
 export default BoardsComponent;
