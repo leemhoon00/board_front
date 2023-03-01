@@ -1,17 +1,16 @@
 import axios from 'axios';
+import { useRecoilValue } from 'recoil';
+import { userState } from '../../store';
 
 function BoardsComponent() {
-  const ClickEvent = async (event) => {
-    await axios.post('http://localhost:3001/auth/test',{ddd:'ddd'},{
-      withCredentials: true
-    })
-      .then((res) => {
-        console.log(res);
-      });
-  }
+  const user = useRecoilValue(userState);
   return(
-    <div>
-      <button onClick={ClickEvent}>OK</button>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+    }}>
+      <h1>게시판</h1>
+      <label>{user}</label>
     </div>
   );
 }
