@@ -1,8 +1,9 @@
 import * as React from "react";
-
-class SignupComponent extends React.Component {
-  render() {
-    const submitButton = (event) => {
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+  function SignupComponent() {
+    const navigate = useNavigate();
+    const submitButton = async (event) => {
       event.preventDefault();
       const user = {
         id: event.target.id.value,
@@ -10,7 +11,17 @@ class SignupComponent extends React.Component {
         name: event.target.name.value,
       }
 
-      
+      await axios.post('http://localhost:3001/auth/join',user)
+        .then(res => {
+          if(res.data === 2){
+            alert('해당 아이디가 이미 있습니다.');
+          } else if(res.data === 3){
+            alert('디비 에러');
+          } else{
+            alert('회원가입 성공');
+            navigate('/');
+          }
+        });
     }
     return (
       <div style={{
@@ -29,6 +40,6 @@ class SignupComponent extends React.Component {
       </div>
     );
   }
-}
+
 
 export default SignupComponent;
