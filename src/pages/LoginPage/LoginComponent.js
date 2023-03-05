@@ -15,7 +15,7 @@ function LoginComponent() {
       id: event.target.id.value,
       pw: event.target.pw.value,
     };
-    await axios.post('http://localhost:3001/auth/login', user, { withCredentials: true })
+    await axios.post('http://ec2-43-201-99-215.ap-northeast-2.compute.amazonaws.com:5004/auth/login', user, { withCredentials: true })
       .then((res) => {
         console.log(res);
         if(res.status === 200){

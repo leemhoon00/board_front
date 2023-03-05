@@ -12,7 +12,7 @@ function SignupComponent() {
       name: event.target.name.value,
     }
 
-    await axios.post('http://localhost:3001/auth/join',user)
+    await axios.post('http://ec2-43-201-99-215.ap-northeast-2.compute.amazonaws.com:5004/auth/join',user, { withCredentials: true })
       .then(res => {
         if(res.data === 2){
           alert('해당 아이디가 이미 있습니다.');

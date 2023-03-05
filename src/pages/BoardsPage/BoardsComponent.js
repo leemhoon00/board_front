@@ -9,11 +9,11 @@ function BoardsComponent() {
   const navigate = useNavigate();
 
   const clickEvent = (event) => {
-    axios.post('http://localhost:3001/auth/test',{},{withCredentials: true});
+    axios.post('http://ec2-43-201-99-215.ap-northeast-2.compute.amazonaws.com:5004/auth/test',{},{withCredentials: true});
   }
 
   const LogoutEvent = (event) => {
-    axios.get('http://localhost:3001/auth/test', {withCredentials: true})
+    axios.get('http://ec2-43-201-99-215.ap-northeast-2.compute.amazonaws.com:5004/auth/test', {withCredentials: true})
       .then((res) => {
         navigate('/');
       })
